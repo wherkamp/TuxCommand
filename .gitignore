@@ -1,0 +1,9 @@
+target/
+*.class
+jda/target/
+common/target/
+bukkit/target/
+out/
+*.iml
+.idea/
+
