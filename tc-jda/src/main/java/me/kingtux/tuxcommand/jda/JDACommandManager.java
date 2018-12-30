@@ -37,7 +37,6 @@ public class JDACommandManager extends ListenerAdapter
 
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
-        System.out.println("Message Recieved");
         if (!e.getMessage().getEmbeds().isEmpty()) {
             //Throw out messages with embeds
             return;
@@ -45,7 +44,6 @@ public class JDACommandManager extends ListenerAdapter
         if (!e.getMessage().getContentStripped().startsWith(prefix) ||
                 !e.getMessage().getContentStripped().startsWith(guildSpecificPrefixes.getOrDefault(e.getGuild(), prefix)))
             return;
-        System.out.println("We got it");
         executeCommand(e);
     }
 
@@ -75,13 +73,13 @@ public class JDACommandManager extends ListenerAdapter
                 message = message.replaceFirst(gp, "");
             }
         }
-        System.out.println("About to send");
         String[] messageParsed = message.split(" ");
         InternalCommand internalCommand = getCommand(messageParsed[0]);
         if (internalCommand == null) return;
         JDAInternalCommand jdaInternalCommand = (JDAInternalCommand) internalCommand;
         jdaInternalCommand.execute(messageParsed[0], TuxUtils.noNulls(removeFirst(messageParsed)), e);
     }
+
 
     private String[] removeFirst(String[] messageParsed) {
         List<String> s = new ArrayList<>(Arrays.asList(messageParsed));
@@ -90,7 +88,7 @@ public class JDACommandManager extends ListenerAdapter
     }
 
     @Override
-    public void register(TuxCommand tuxCommand, MyCommandRules rules) {
+    public void register(TuxCommand tuxCommand, MyCommand rules) {
         if (getInternalCommand(tuxCommand) != null) {
             try {
                 throw new IllegalAccessException("Hey, You have already registered that command!");
@@ -99,7 +97,7 @@ public class JDACommandManager extends ListenerAdapter
                 return;
             }
         }
-        if (rules != null) AnnotationWriter.writeToAnnotation(tuxCommand.getClass(), CommandRules.class, rules);
+        if (rules != null) AnnotationWriter.writeToAnnotation(tuxCommand.getClass(), Command.class, rules);
         registeredCommands.add(new JDAInternalCommand(tuxCommand));
     }
 
@@ -111,7 +109,7 @@ public class JDACommandManager extends ListenerAdapter
      */
     public InternalCommand getCommand(String command) {
         for (InternalCommand internalCommand : registeredCommands) {
-            CommandRules rules = internalCommand.getTuxCommand().getCommandRules();
+            Command rules = internalCommand.getTuxCommand().getCommand();
             if (new ArrayList<>(Arrays.asList(rules.aliases())).contains(command.toLowerCase())) {
                 return internalCommand;
             }

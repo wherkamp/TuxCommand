@@ -3,6 +3,7 @@ package me.kingtux.tuxcommand.jda;
 import me.kingtux.tuxcommand.common.HelpCommand;
 import me.kingtux.tuxcommand.common.SubCommand;
 import me.kingtux.tuxcommand.common.TuxCommand;
+import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.lang.reflect.InvocationTargetException;
@@ -38,7 +39,13 @@ public class InternalHelpCommand {
      */
     public void execute(String message, String[] strings, MessageReceivedEvent message1) {
         try {
-            methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
+            Object object = methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
+            if (object == null || object.getClass() == Void.TYPE) {
+                return;
+            }
+            if (object instanceof String) {
+                message1.getChannel().sendMessage(((String) object)).queue();
+            }
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }

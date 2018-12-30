@@ -2,30 +2,33 @@ package me.kingtux.tuxcommand.common;
 
 import java.lang.annotation.Annotation;
 
-public class MyCommandRules implements CommandRules {
-    private CommandRules commandRules;
+/**
+ * A simple way of editing the rules of the Cmmand
+ */
+public class MyCommand implements Command {
+    private Command command;
     private String description, format;
     private String[] aliases;
 
-    public MyCommandRules(CommandRules annotation) {
-        this.commandRules = annotation;
-        description = commandRules.description();
-        format = commandRules.format();
-        aliases = commandRules.aliases();
+    public MyCommand(Command annotation) {
+        this.command = annotation;
+        description = command.description();
+        format = command.format();
+        aliases = command.aliases();
 
     }
 
-    public CommandRules getCommandRules() {
-        return commandRules;
+    public Command getCommand() {
+        return command;
     }
 
-    public void setCommandRules(CommandRules commandRules) {
-        this.commandRules = commandRules;
+    public void setCommand(Command command) {
+        this.command = command;
     }
 
     @Override
     public Class<? extends Annotation> annotationType() {
-        return commandRules.annotationType();
+        return command.annotationType();
     }
 
 
