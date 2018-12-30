@@ -1,9 +1,0 @@
-me/kingtux/tuxcommand/common/SubCommand.class
-me/kingtux/tuxcommand/common/CommandManager.class
-me/kingtux/tuxcommand/common/InternalCommand.class
-me/kingtux/tuxcommand/common/HelpCommand.class
-me/kingtux/tuxcommand/common/TuxCommand.class
-me/kingtux/tuxcommand/common/MyCommandRules.class
-me/kingtux/tuxcommand/common/BaseCommand.class
-me/kingtux/tuxcommand/common/TuxUtils.class
-me/kingtux/tuxcommand/common/CommandRules.class
