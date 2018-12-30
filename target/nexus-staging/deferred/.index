@@ -1,0 +1,3 @@
+me/kingtux/tuxcommand/1.0-SNAPSHOT/tuxcommand-1.0-20181230.000543-5.pom=me.kingtux:tuxcommand:1.0-20181230.000543-5:n/a:pom:pom:n/a:n/a:kingtux-repo:http://repo.kingtux.me/repository/maven-snapshots/
+me/kingtux/common/1.0-SNAPSHOT/common-1.0-20181230.000559-5.jar=me.kingtux:common:1.0-20181230.000559-5:n/a:jar:jar:common-1.0-20181230.000559-5.pom:n/a:kingtux-repo:http://repo.kingtux.me/repository/maven-snapshots/
+me/kingtux/bukkit/1.0-SNAPSHOT/bukkit-1.0-20181230.000604-5.jar=me.kingtux:bukkit:1.0-20181230.000604-5:n/a:jar:jar:bukkit-1.0-20181230.000604-5.pom:n/a:kingtux-repo:http://repo.kingtux.me/repository/maven-snapshots/

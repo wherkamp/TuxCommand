@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="4" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b2a4c7f3-ed2f-4d7b-8084-8e968f34e218" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/jda/src/test/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jda/src/test/java/TestCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jda/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-bukkit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitCommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitCommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitInternalCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitInternalCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalBaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalBaseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalSubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/TabCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/TabCompleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/BaseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/CommandRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/CommandRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/InternalCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/InternalCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/MyCommandRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/MyCommandRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/SubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/SubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/TuxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/TuxCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/TuxUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/TuxUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jda/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/BasicHelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/BasicHelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalBaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalBaseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalHelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalHelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalSubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/JDACommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDACommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/JDAInternalCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDAInternalCommand.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/tuxcommand-jda/target/" />
+    <ignored path="$PROJECT_DIR$/tuxcommand-bukkit/target/" />
+    <ignored path="$PROJECT_DIR$/tuxcommand-common/target/" />
+    <ignored path="$PROJECT_DIR$/jda/target/" />
+    <ignored path="$PROJECT_DIR$/common/target/" />
+    <ignored path="$PROJECT_DIR$/bukkit/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jda/src/test/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jda/src/test/java/TestCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jda/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jda/dependency-reduced-pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDACommandManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDAInternalCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="55" column="81" selection-start-line="55" selection-start-column="81" selection-end-line="55" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_450/JDA-3.8.1_450.jar!/net/dv8tion/jda/core/hooks/ListenerAdapter.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="772" selection-start-line="772" selection-end-line="772" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>customRules</find>
+      <find>IkeaCommand</find>
+      <find>ikeaCommand</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>rules</replace>
+      <replace>TuxCommand</replace>
+      <replace>tuxCommand</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/bukkit.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/TabCompleter.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/TuxCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalBaseCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalSubCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/InternalCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/BaseCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/CommandManager.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/pom.xml" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/CommandRules.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/MyCommandRules.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/HelpCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/JDACommandManager.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalBaseCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/SubCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalSubCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-common/src/main/java/me.kingtux.tuxcommand.common/TuxUtils.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalHelpCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/JDAInternalCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/InternalUtils.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/src/main/java/me/kingtux/tuxcommand/jda/BasicHelpCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitCommandManager.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitInternalCommand.java" />
+        <option value="$PROJECT_DIR$/tuxcommand-jda/pom.xml" />
+        <option value="$PROJECT_DIR$/tuxcommand-bukkit/pom.xml" />
+        <option value="$PROJECT_DIR$/jda/pom.xml" />
+        <option value="$PROJECT_DIR$/bukkit/pom.xml" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/jda/src/test/java/Main.java" />
+        <option value="$PROJECT_DIR$/jda/src/main/java/TestCommand.java" />
+        <option value="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDACommandManager.java" />
+        <option value="$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDAInternalCommand.java" />
+        <option value="$PROJECT_DIR$/jda/src/test/java/TestCommand.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="27" />
+    <option name="width" value="1600" />
+    <option name="height" value="873" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="me.kingtux.tuxcommand.common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuxCommand" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuxCommand" type="462c0819:PsiDirectoryNode" />
+              <item name="jda" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546128331399" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="discord" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+      <recent name="me.kingtux.tuxcommand.jda" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tuxcommand-bukkit/src/main/java/me/kingtux/tuxcommand/bukkit" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Maven.tuxcommand [clean,deploy]">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="jda" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tuxcommand [clean,deploy]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="deploy" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.tuxcommand [clean,deploy]" />
+      <item itemvalue="Application.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2a4c7f3-ed2f-4d7b-8084-8e968f34e218" name="Default Changelist" comment="" />
+      <created>1544462552031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544462552031</updated>
+      <workItem from="1544462557480" duration="9369000" />
+      <workItem from="1546101702772" duration="16418000" />
+    </task>
+    <task id="LOCAL-00001" summary="JDA work">
+      <created>1546107397796</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546107397796</updated>
+    </task>
+    <task id="LOCAL-00002" summary="I am almost done with JDA">
+      <created>1546125383338</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546125383338</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="25787000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="27" width="1600" height="873" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49898168" visible="true" weight="0.3170103" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Structure" order="6" sideWeight="0.50101835" weight="0.253866" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Floobits" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33333334" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" x="0" y="0" width="350" height="673" id="Documentation" side_tool="true" weight="0.32925257" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="SciView" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49898168" visible="true" weight="0.3170103" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Structure" order="6" sideWeight="0.50101835" weight="0.253866" />
+      <window_info anchor="bottom" id="Messages" order="0" />
+      <window_info anchor="bottom" id="Floobits" order="1" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" visible="true" weight="0.33333334" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="right" x="0" y="0" width="350" height="673" id="Documentation" order="0" side_tool="true" weight="0.32925257" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="SciView" order="9" />
+      <window_info anchor="right" id="Database" order="10" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="JDA work" />
+    <MESSAGE value="I am almost done" />
+    <MESSAGE value="I am almost done with JDA" />
+    <option name="LAST_COMMIT_MESSAGE" value="I am almost done with JDA" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/common/tuxcommand-common.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/TabCompleter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalSubCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/InternalCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/BaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/TuxCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding>
+            <element signature="e#114#115#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/target/apidocs/packages">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/target/apidocs/javadoc.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/target/apidocs/options">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="21" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/tuxcommand-jda.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/CommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/MyCommandRules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+          <folding>
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#1123#1124#0" expanded="true" />
+            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1289#1290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/HelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/InternalBaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="69" selection-start-line="69" selection-end-line="87" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/CommandRules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/SubCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/me.kingtux.tuxcommand.common/TuxUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalSubCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" selection-start-line="10" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1096#1097#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalHelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalBaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitInternalCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="22" column="214" selection-start-line="22" selection-start-column="214" selection-end-line="22" selection-end-column="214" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5523#5524#0" expanded="true" />
+            <element signature="e#5556#5557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bukkit/src/main/java/me/kingtux/tuxcommand/bukkit/BukkitCommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/BasicHelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bukkit/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/options">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/common/options">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/common/javadoc.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="84" selection-start-column="84" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/dependency-reduced-pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/test/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_450/JDA-3.8.1_450.jar!/net/dv8tion/jda/core/hooks/ListenerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="772" selection-start-line="772" selection-end-line="772" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/InternalUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDAInternalCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="55" column="81" selection-start-line="55" selection-start-column="81" selection-end-line="55" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/main/java/me/kingtux/tuxcommand/jda/JDACommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jda/src/test/java/TestCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Minecraft</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>bootstrap</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>jda</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.google.code.gson:gson:2.8.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
