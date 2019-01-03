@@ -6,19 +6,25 @@ import me.kingtux.tuxcommand.jda.RequiredPermission;
 import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.requests.restaction.MessageAction;
 
 @Command(aliases = {"hey"}, format = "hey test", description = "Just a test")
 public class TestCommand implements TuxCommand {
     @BaseCommand
-    public void baseCommand(String s, String[] args, Message message, MessageReceivedEvent e) {
-        Object o = null;
-        System.out.println(o.toString());
+    public void baseCommand(String s, TextChannel tc) {
+        tc.sendMessage(s + " was sent!").queue();
     }
 
     @SubCommand(alias = "test")
-    public void testSub(String s, String[] args, Message message) {
-        System.out.println(s + " " + message.getContentStripped());
+    public MessageAction testSub(String s, String[] args, Message message) {
+        return message.getChannel().sendMessage(s + " " + message.getContentStripped());
+    }
+
+    @SubCommand(alias = "null")
+    public void nullCheck(TextChannel textChannel) {
+        textChannel.sendMessage("Null Checking").complete();
+        Object o = null;
+        System.out.println(o.toString());
     }
 
     @RequiredPermission(permission = Permission.ADMINISTRATOR)

@@ -22,6 +22,7 @@ public class JDACommandManager
     private String prefix;
     private Map<Guild, String> guildSpecificPrefixes = new HashMap<>();
     private JDAMissingPermission permission;
+    private JDAFailureHandler handler;
 
     /**
      * Instantiates a new Jda command manager.
@@ -35,8 +36,10 @@ public class JDACommandManager
         registeredCommands = new ArrayList<>();
         this.prefix = prefix;
         permission = null;
-    }
 
+        //Use the default form!
+        handler = (executor, jdaCommand) -> executor.printStackTrace();
+    }
 
     public void onMessageReceived(MessageReceivedEvent e) {
         if (!e.getMessage().getEmbeds().isEmpty()) {
@@ -161,5 +164,14 @@ public class JDACommandManager
         } else if (event instanceof GuildMemberLeaveEvent) {
             onGuildLeave((GuildMemberLeaveEvent) event);
         }
+    }
+
+    public JDAFailureHandler getHandler() {
+        return handler;
+    }
+
+    public void setHandler(JDAFailureHandler handler) {
+        if (handler == null) return;
+        this.handler = handler;
     }
 }

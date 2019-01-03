@@ -1,12 +1,13 @@
 package me.kingtux.tuxcommand.jda;
 
+import me.kingtux.tuxcommand.common.CommandException;
+import me.kingtux.tuxcommand.common.CommandExecutor;
 import me.kingtux.tuxcommand.common.HelpCommand;
-import me.kingtux.tuxcommand.common.SubCommand;
 import me.kingtux.tuxcommand.common.TuxCommand;
-import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.requests.restaction.MessageAction;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -37,10 +38,13 @@ public class InternalHelpCommand {
      * @param strings  the strings
      * @param message1 the message 1
      */
-    public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager commandManager) {
-        InternalUtils.execute(methodToInvoke, tuxCommand, commandManager,message, strings, message1);
+    public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager jdaCommandManager) {
+        JDACommand jdaCommand = InternalUtils.buildCommand(methodToInvoke, message, strings, tuxCommand, jdaCommandManager, message1);
+        if (jdaCommand == null) return;
+        InternalUtils.execute(jdaCommand);
 
     }
+
 
     /**
      * Gets command rules.

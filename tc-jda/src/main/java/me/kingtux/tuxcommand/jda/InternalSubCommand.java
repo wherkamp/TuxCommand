@@ -1,7 +1,9 @@
 package me.kingtux.tuxcommand.jda;
 
+import me.kingtux.tuxcommand.common.CommandExecutor;
 import me.kingtux.tuxcommand.common.SubCommand;
 import me.kingtux.tuxcommand.common.TuxCommand;
+import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.lang.reflect.Method;
@@ -35,8 +37,11 @@ public class InternalSubCommand {
      * @param message1 the message 1
      */
     public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager jdaCommandManager) {
-        InternalUtils.execute(methodToInvoke, tuxCommand,jdaCommandManager, message, strings, message1);
+        JDACommand jdaCommand = InternalUtils.buildCommand(methodToInvoke, message, strings, tuxCommand, jdaCommandManager, message1);
+        if (jdaCommand == null) return;
+        InternalUtils.execute(jdaCommand);
     }
+
 
     /**
      * Gets command rules.

@@ -1,12 +1,10 @@
 package me.kingtux.tuxcommand.jda;
 
 import me.kingtux.simpleannotation.MethodFinder;
-import me.kingtux.tuxcommand.common.BaseCommand;
-import me.kingtux.tuxcommand.common.HelpCommand;
-import me.kingtux.tuxcommand.common.SubCommand;
-import me.kingtux.tuxcommand.common.TuxCommand;
+import me.kingtux.tuxcommand.common.*;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.requests.restaction.MessageAction;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -94,35 +92,52 @@ class InternalUtils {
         return new InternalHelpCommand(tuxCommand, MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), HelpCommand.class), MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), HelpCommand.class).getAnnotation(HelpCommand.class));
     }
 
-    static void execute(Method methodToInvoke, TuxCommand tuxCommand, JDACommandManager jdaCommandManager, String message, String[] strings, MessageReceivedEvent message1) {
+    static JDACommand buildCommand(Method methodToInvoke, String message, String[] args, TuxCommand tuxCommand, JDACommandManager jdaCommandManager, MessageReceivedEvent message1) {
         if (methodToInvoke.getAnnotation(RequiredPermission.class) != null) {
             RequiredPermission permission = methodToInvoke.getAnnotation(RequiredPermission.class);
             if (!message1.getMember().hasPermission(permission.permission())) {
                 if (jdaCommandManager.getPermission() != null) {
                     jdaCommandManager.getPermission().handleLackOfPermission(permission.permission(), message1.getMember(), message1.getTextChannel(), tuxCommand);
                 }
-                return;
+                return null;
             }
         }
-        try {
-            if (methodToInvoke.getReturnType() == Void.TYPE) {
-                methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
-                return;
+        JDACommand jdaCommand = new JDACommand();
+        jdaCommand.setTuxCommand(tuxCommand);
+        jdaCommand.setCommandManager(jdaCommandManager);
+        jdaCommand.setArgs(buildArguments(message, args, methodToInvoke, message1));
+        jdaCommand.setChannelUsed(message1.getTextChannel());
+        jdaCommand.setExecutor((tuxCommand1, args1) -> {
+            try {
+                //if (methodToInvoke.getReturnType() == Void.TYPE) {
+                //    methodToInvoke.invoke(tuxCommand1, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
+                //    return null;
+                //}
+                return methodToInvoke.invoke(tuxCommand1, args1);
+            } catch (InvocationTargetException e) {
+                throw new CommandException(e.getCause());
+            } catch (Throwable e) {
+                throw new CommandException(e);
             }
-            Object object = methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
-            if (object == null || object.getClass() == Void.TYPE) {
-                return;
-            }
-            if (object instanceof String) {
-                message1.getChannel().sendMessage(((String) object)).queue();
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.out.println("Failed to run command " + tuxCommand.getCommand().aliases()[0] + " ");
-            e.printStackTrace();
-        }
-
+        });
+        return jdaCommand;
     }
+
+    static void execute(JDACommand jdaCommand) {
+
+        try {
+            Object o = jdaCommand.getExecutor().execute(jdaCommand.getTuxCommand(), jdaCommand.getArgs());
+            if (o == null) return;
+            if (o instanceof String) {
+                jdaCommand.getChannelUsed().sendMessage(((String) o)).queue();
+            } else if (o instanceof MessageAction) {
+                MessageAction message2 = (MessageAction) o;
+                message2.queue();
+            }
+        } catch (CommandException e) {
+            jdaCommand.getCommandManager().getHandler().onFail(e, jdaCommand);
+        }
+    }
+
 
 }

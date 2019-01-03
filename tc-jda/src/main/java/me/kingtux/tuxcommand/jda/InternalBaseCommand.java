@@ -35,7 +35,9 @@ public class InternalBaseCommand {
      * @param message1 the message 1
      */
     public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager jdaCommandManager) {
-        InternalUtils.execute(methodToInvoke, tuxCommand, jdaCommandManager,message, strings, message1);
+        JDACommand jdaCommand = InternalUtils.buildCommand(methodToInvoke, message, strings, tuxCommand, jdaCommandManager, message1);
+        if (jdaCommand == null) return;
+        InternalUtils.execute(jdaCommand);
     }
 
 
