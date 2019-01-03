@@ -4,22 +4,24 @@ import me.kingtux.simpleannotation.AnnotationWriter;
 import me.kingtux.tuxcommand.common.*;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.events.guild.GuildLeaveEvent;
+import net.dv8tion.jda.core.events.Event;
+import net.dv8tion.jda.core.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.hooks.EventListener;
 
 import java.util.*;
 
 /**
  * The type Jda command manager.
  */
-public class JDACommandManager extends ListenerAdapter
-        implements CommandManager {
+public class JDACommandManager
+        implements CommandManager, EventListener {
     private JDA jda;
     private boolean botsRun = false;
     private List<InternalCommand> registeredCommands;
     private String prefix;
     private Map<Guild, String> guildSpecificPrefixes = new HashMap<>();
+    private JDAMissingPermission permission;
 
     /**
      * Instantiates a new Jda command manager.
@@ -32,17 +34,17 @@ public class JDACommandManager extends ListenerAdapter
         jda.addEventListener(this);
         registeredCommands = new ArrayList<>();
         this.prefix = prefix;
+        permission = null;
     }
 
 
-    @Override
     public void onMessageReceived(MessageReceivedEvent e) {
         if (!e.getMessage().getEmbeds().isEmpty()) {
             //Throw out messages with embeds
             return;
         }
-        if (!e.getMessage().getContentStripped().startsWith(prefix) ||
-                !e.getMessage().getContentStripped().startsWith(guildSpecificPrefixes.getOrDefault(e.getGuild(), prefix)))
+        if (!e.getMessage().getContentRaw().startsWith(prefix) ||
+                !e.getMessage().getContentRaw().startsWith(guildSpecificPrefixes.getOrDefault(e.getGuild(), prefix)))
             return;
         executeCommand(e);
     }
@@ -57,14 +59,13 @@ public class JDACommandManager extends ListenerAdapter
         guildSpecificPrefixes.put(guild, prefix);
     }
 
-    @Override
-    public void onGuildLeave(GuildLeaveEvent event) {
+    public void onGuildLeave(GuildMemberLeaveEvent event) {
         guildSpecificPrefixes.remove(event.getGuild());
     }
 
 
     private void executeCommand(MessageReceivedEvent e) {
-        String message = e.getMessage().getContentStripped();
+        String message = e.getMessage().getContentRaw();
         if (message.startsWith(prefix)) {
             message = message.replaceFirst(prefix, "");
         } else {
@@ -98,7 +99,7 @@ public class JDACommandManager extends ListenerAdapter
             }
         }
         if (rules != null) AnnotationWriter.writeToAnnotation(tuxCommand.getClass(), Command.class, rules);
-        registeredCommands.add(new JDAInternalCommand(tuxCommand));
+        registeredCommands.add(new JDAInternalCommand(tuxCommand, this));
     }
 
     /**
@@ -143,5 +144,22 @@ public class JDACommandManager extends ListenerAdapter
      */
     public void canBotsRun(boolean botsRun) {
         this.botsRun = botsRun;
+    }
+
+    public JDAMissingPermission getPermission() {
+        return permission;
+    }
+
+    public void setPermission(JDAMissingPermission permission) {
+        this.permission = permission;
+    }
+
+    @Override
+    public void onEvent(Event event) {
+        if (event instanceof MessageReceivedEvent) {
+            onMessageReceived((MessageReceivedEvent) event);
+        } else if (event instanceof GuildMemberLeaveEvent) {
+            onGuildLeave((GuildMemberLeaveEvent) event);
+        }
     }
 }

@@ -8,6 +8,7 @@ import me.kingtux.tuxcommand.common.TuxCommand;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,4 +93,36 @@ class InternalUtils {
         }
         return new InternalHelpCommand(tuxCommand, MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), HelpCommand.class), MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), HelpCommand.class).getAnnotation(HelpCommand.class));
     }
+
+    static void execute(Method methodToInvoke, TuxCommand tuxCommand, JDACommandManager jdaCommandManager, String message, String[] strings, MessageReceivedEvent message1) {
+        if (methodToInvoke.getAnnotation(RequiredPermission.class) != null) {
+            RequiredPermission permission = methodToInvoke.getAnnotation(RequiredPermission.class);
+            if (!message1.getMember().hasPermission(permission.permission())) {
+                if (jdaCommandManager.getPermission() != null) {
+                    jdaCommandManager.getPermission().handleLackOfPermission(permission.permission(), message1.getMember(), message1.getTextChannel(), tuxCommand);
+                }
+                return;
+            }
+        }
+        try {
+            if (methodToInvoke.getReturnType() == Void.TYPE) {
+                methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
+                return;
+            }
+            Object object = methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
+            if (object == null || object.getClass() == Void.TYPE) {
+                return;
+            }
+            if (object instanceof String) {
+                message1.getChannel().sendMessage(((String) object)).queue();
+            }
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Failed to run command " + tuxCommand.getCommand().aliases()[0] + " ");
+            e.printStackTrace();
+        }
+
+    }
+
 }

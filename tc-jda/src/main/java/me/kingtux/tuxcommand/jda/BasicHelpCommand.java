@@ -17,7 +17,7 @@ public class BasicHelpCommand extends InternalHelpCommand {
     }
 
     @Override
-    public void execute(String message, String[] strings, MessageReceivedEvent message1) {
+    public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager jdaCommandManager) {
         message1.getChannel().sendMessage("Something Gay ignore me at the moment").queue();
     }
 }

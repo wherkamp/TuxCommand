@@ -37,18 +37,9 @@ public class InternalHelpCommand {
      * @param strings  the strings
      * @param message1 the message 1
      */
-    public void execute(String message, String[] strings, MessageReceivedEvent message1) {
-        try {
-            Object object = methodToInvoke.invoke(tuxCommand, InternalUtils.buildArguments(message, strings, methodToInvoke, message1));
-            if (object == null || object.getClass() == Void.TYPE) {
-                return;
-            }
-            if (object instanceof String) {
-                message1.getChannel().sendMessage(((String) object)).queue();
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
+    public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager commandManager) {
+        InternalUtils.execute(methodToInvoke, tuxCommand, commandManager,message, strings, message1);
+
     }
 
     /**
