@@ -1,4 +1,6 @@
-package me.kingtux.tuxcommand.common;
+package me.kingtux.tuxcommand.common.internals;
+
+import me.kingtux.tuxcommand.common.TuxCommand;
 
 /**
  * The Internal Command

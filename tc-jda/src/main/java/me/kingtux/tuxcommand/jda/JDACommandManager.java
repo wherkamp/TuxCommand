@@ -2,6 +2,7 @@ package me.kingtux.tuxcommand.jda;
 
 import me.kingtux.simpleannotation.AnnotationWriter;
 import me.kingtux.tuxcommand.common.*;
+import me.kingtux.tuxcommand.common.internals.InternalCommand;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.events.Event;
@@ -15,7 +16,7 @@ import java.util.*;
  * The type Jda command manager.
  */
 public class JDACommandManager
-        implements CommandManager, EventListener {
+        implements CommandManager<JDAFailureHandler, JDACommandMaker>, EventListener {
     private JDA jda;
     private boolean botsRun = false;
     private List<InternalCommand> registeredCommands;
@@ -23,6 +24,7 @@ public class JDACommandManager
     private Map<Guild, String> guildSpecificPrefixes = new HashMap<>();
     private JDAMissingPermission permission;
     private JDAFailureHandler handler;
+    private JDACommandMaker maker;
 
     /**
      * Instantiates a new Jda command manager.
@@ -36,7 +38,7 @@ public class JDACommandManager
         registeredCommands = new ArrayList<>();
         this.prefix = prefix;
         permission = null;
-
+        maker = new JDACommandMaker();
         //Use the default form!
         handler = (executor, jdaCommand) -> executor.printStackTrace();
     }
@@ -166,12 +168,23 @@ public class JDACommandManager
         }
     }
 
-    public JDAFailureHandler getHandler() {
+    public JDAFailureHandler getFailureHandler() {
         return handler;
     }
 
-    public void setHandler(JDAFailureHandler handler) {
+    public void setFailureHandler(JDAFailureHandler handler) {
         if (handler == null) return;
         this.handler = handler;
+    }
+
+    @Override
+    public JDACommandMaker getCommandMaker() {
+        return maker;
+    }
+
+    public List<TuxCommand> getRegisteredCommands() {
+        List<TuxCommand> tuxCommands = new ArrayList<>();
+        registeredCommands.forEach(internalCommand -> tuxCommands.add(internalCommand.getTuxCommand()));
+        return tuxCommands;
     }
 }

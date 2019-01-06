@@ -1,23 +1,18 @@
 package me.kingtux.tuxcommand.jda;
 
+import me.kingtux.tuxcommand.common.CommandManager;
 import me.kingtux.tuxcommand.common.TuxCommand;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import me.kingtux.tuxcommand.common.internals.ArgumentSet;
+import me.kingtux.tuxcommand.common.internals.HelpCommandObject;
 
-/**
- * The type Basic help command.
- */
-public class BasicHelpCommand extends InternalHelpCommand {
-    /**
-     * Instantiates a new Basic help command.
-     *
-     * @param tuxCommand the tux command
-     */
+public class BasicHelpCommand extends HelpCommandObject {
     public BasicHelpCommand(TuxCommand tuxCommand) {
         super(tuxCommand, null, null);
     }
 
     @Override
-    public void execute(String message, String[] strings, MessageReceivedEvent message1, JDACommandManager jdaCommandManager) {
-        message1.getChannel().sendMessage("Something Gay ignore me at the moment").queue();
+    public void execute(CommandManager commandManager, ArgumentSet jdaArgumentSet) {
+        JDAArgumentSet argumentSet = (JDAArgumentSet) jdaArgumentSet;
+        argumentSet.getMember().getUser().openPrivateChannel().complete().sendMessage("Comming Soon to a bot near you!").queue();
     }
 }

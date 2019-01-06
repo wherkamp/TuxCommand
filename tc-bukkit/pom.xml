@@ -62,5 +62,10 @@
             <scope>compile</scope>
 
         </dependency>
+        <dependency>
+            <groupId>me.kingtux</groupId>
+            <artifactId>tc-tabcompleter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

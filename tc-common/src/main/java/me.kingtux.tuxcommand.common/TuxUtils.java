@@ -20,4 +20,8 @@ public class TuxUtils {
     public static <T> boolean contains(T[] array, T value) {
         return new ArrayList<>(Arrays.asList(array)).contains(value);
     }
+
+    public static Object[] arrayOf(Object... o) {
+        return o;
+    }
 }

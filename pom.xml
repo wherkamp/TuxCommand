@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>tc-common</module>
+        <module>tc-tabcompleter</module>
         <module>tc-bukkit</module>
         <module>tc-jda</module>
     </modules>

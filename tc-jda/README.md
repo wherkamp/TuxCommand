@@ -48,6 +48,7 @@ class TestCommand implements TuxCommand {
 2. String[] this is the args. In a sub command the first argument is removed
 3. The Following JDA Objects: Message, MessageReceivedEvent, Member, User, TextChannel, and Guild 
 #### Other Info
+This is not supported yet!
 You may return either, void (Does nothing) or a String(Will send it)
 
 

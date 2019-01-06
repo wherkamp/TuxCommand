@@ -13,19 +13,24 @@ import java.lang.annotation.Target;
 public @interface SubCommand {
     /**
      * the aliases for the commands
+     *
      * @return aliases for the sub command
      */
     String[] alias();
 
     /**
      * The Format on how to use this sub command
+     *
      * @return the format
      */
     String format() default "";
 
     /**
      * The description
+     *
      * @return the SubCommand description
      */
     String description() default "";
+
+    String id() default "NO_ID";
 }
