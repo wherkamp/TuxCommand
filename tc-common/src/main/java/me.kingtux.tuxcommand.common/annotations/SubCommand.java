@@ -1,4 +1,4 @@
-package me.kingtux.tuxcommand.common;
+package me.kingtux.tuxcommand.common.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,12 +11,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface SubCommand {
+
+    String subCommand();
+
     /**
      * the aliases for the commands
      *
      * @return aliases for the sub command
      */
-    String[] alias();
+    String[] alias() default "";
 
     /**
      * The Format on how to use this sub command
@@ -32,5 +35,4 @@ public @interface SubCommand {
      */
     String description() default "";
 
-    String id() default "NO_ID";
 }

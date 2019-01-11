@@ -1,5 +1,7 @@
 package me.kingtux.tuxcommand.common;
 
+import me.kingtux.tuxcommand.common.annotations.Command;
+
 /**
  * implement to make a command
  */

@@ -1,5 +1,7 @@
 package me.kingtux.tuxcommand.common;
 
+import me.kingtux.tuxcommand.common.annotations.Command;
+
 import java.lang.annotation.Annotation;
 
 /**

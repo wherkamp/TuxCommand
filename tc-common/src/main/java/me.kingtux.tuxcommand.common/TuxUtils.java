@@ -2,6 +2,7 @@ package me.kingtux.tuxcommand.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class TuxUtils {
@@ -23,5 +24,19 @@ public class TuxUtils {
 
     public static Object[] arrayOf(Object... o) {
         return o;
+    }
+
+    public static boolean containsIgnoreCase(String[] alias, String string) {
+        for (String s : alias) {
+            if (s.equalsIgnoreCase(string)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static <T> List<T> toList(T[] t){
+        List<T> list = new ArrayList<>();
+        Collections.addAll(list, t);
+        return list;
     }
 }

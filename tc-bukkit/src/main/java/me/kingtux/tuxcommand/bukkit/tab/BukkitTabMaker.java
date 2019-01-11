@@ -1,29 +1,33 @@
-package me.kingtux.tuxcommand;
+package me.kingtux.tuxcommand.bukkit.tab;
 
+import me.kingtux.tuxcommand.BukkitArgumentSet;
+import me.kingtux.tuxcommand.BukkitCommandManager;
+import me.kingtux.tuxcommand.BukkitCommandObject;
+import me.kingtux.tuxcommand.BukkitRequiredPermission;
+import me.kingtux.tuxcommand.bukkit.tab.objects.BukkitTabObject;
 import me.kingtux.tuxcommand.common.CommandException;
-import me.kingtux.tuxcommand.common.CommandObject;
 import me.kingtux.tuxcommand.common.TuxCommand;
 import me.kingtux.tuxcommand.common.TuxUtils;
-import me.kingtux.tuxcommand.common.internals.CommandMaker;
+import me.kingtux.tuxcommand.tabcompleter.TabMaker;
+import me.kingtux.tuxcommand.tabcompleter.TabObject;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class BukkitCommandMaker implements CommandMaker<BukkitCommandManager, BukkitArgumentSet> {
-
+public class BukkitTabMaker implements TabMaker<BukkitCommandManager, BukkitArgumentSet> {
     @Override
-    public CommandObject buildCommand(Method methodToInvoke, TuxCommand tuxCommand, BukkitCommandManager commandManager, BukkitArgumentSet t) {
+    public TabObject buildTab(Method methodToInvoke, TuxCommand tuxCommand, BukkitCommandManager commandManager, BukkitArgumentSet t) {
         if (TuxUtils.contains(methodToInvoke.getParameterTypes(), Player.class)) {
             if (!(t.getCommandSender() instanceof Player)) {
                 t.getCommandSender().sendMessage(ChatColor.translateAlternateColorCodes('&', commandManager.getMustBeAPlayer()));
                 return null;
             }
         }
-        BukkitCommandObject commandObject = new BukkitCommandObject();
+        BukkitTabObject commandObject = new BukkitTabObject();
         commandObject.setArgs(createArguments(methodToInvoke, t.toArray()));
-        commandObject.setTuxCommand(tuxCommand);
+        commandObject.setTc(tuxCommand);
         commandObject.setExecutor((TuxCommand tuxCommand1, Object[] args1) -> {
             try {
                 return methodToInvoke.invoke(tuxCommand1, args1);
@@ -35,12 +39,10 @@ public class BukkitCommandMaker implements CommandMaker<BukkitCommandManager, Bu
         });
 
         boolean hasPermission = true;
-        String missingPermission = "";
         BukkitRequiredPermission classPermission = tuxCommand.getClass().getAnnotation(BukkitRequiredPermission.class);
         if (classPermission != null) {
             if (!t.getCommandSender().hasPermission(classPermission.permission())) {
                 hasPermission = false;
-                missingPermission = classPermission.permission();
             }
         }
         //Method Check
@@ -49,14 +51,10 @@ public class BukkitCommandMaker implements CommandMaker<BukkitCommandManager, Bu
             if (methodPermission != null) {
                 if (!t.getCommandSender().hasPermission(classPermission.permission())) {
                     hasPermission = false;
-                    missingPermission = methodPermission.permission();
                 }
             }
         }
         if (!hasPermission) {
-            if (commandManager.getPermission() != null) {
-                commandManager.getPermission().handle(commandObject, t, missingPermission);
-            }
             return null;
         }
         return commandObject;

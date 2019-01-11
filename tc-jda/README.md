@@ -4,9 +4,9 @@ This is the TuxCommand JDA system. This is partly ready
 ### How to use
 
 ```java
-import me.kingtux.tuxcommand.common.BaseCommand;
+import me.kingtux.tuxcommand.common.me.kingtux.tuxcommand.tabcompleter.annotations.BaseCommand;
 import me.kingtux.tuxcommand.common.CommandManager;
-import me.kingtux.tuxcommand.common.SubCommand;
+import me.kingtux.tuxcommand.common.me.kingtux.tuxcommand.tabcompleter.annotations.SubCommand;
 import me.kingtux.tuxcommand.common.TuxCommand;
 import me.kingtux.tuxcommand.jda.JDACommandManager;
 import net.dv8tion.jda.core.JDA;

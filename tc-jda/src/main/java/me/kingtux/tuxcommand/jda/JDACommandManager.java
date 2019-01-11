@@ -2,6 +2,7 @@ package me.kingtux.tuxcommand.jda;
 
 import me.kingtux.simpleannotation.AnnotationWriter;
 import me.kingtux.tuxcommand.common.*;
+import me.kingtux.tuxcommand.common.annotations.Command;
 import me.kingtux.tuxcommand.common.internals.InternalCommand;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Guild;

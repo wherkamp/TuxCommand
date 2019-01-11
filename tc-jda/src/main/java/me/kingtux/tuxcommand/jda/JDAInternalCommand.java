@@ -1,15 +1,14 @@
 package me.kingtux.tuxcommand.jda;
 
-import me.kingtux.simpleannotation.MethodFinder;
-import me.kingtux.tuxcommand.common.*;
+import me.kingtux.tuxcommand.common.TCUtils;
+import me.kingtux.tuxcommand.common.TuxCommand;
+import me.kingtux.tuxcommand.common.TuxUtils;
 import me.kingtux.tuxcommand.common.internals.BaseCommandObject;
 import me.kingtux.tuxcommand.common.internals.HelpCommandObject;
 import me.kingtux.tuxcommand.common.internals.InternalCommand;
 import me.kingtux.tuxcommand.common.internals.SubCommandObject;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,9 +28,9 @@ public class JDAInternalCommand implements InternalCommand {
      */
     public JDAInternalCommand(TuxCommand tuxCommand, JDACommandManager commandManager) {
         this.tuxCommand = tuxCommand;
-        internalBaseCommand = createBaseCommandObject(tuxCommand);
-        subCommands = createSubCommandObjects(tuxCommand);
-        helpCommand = createHelpCommandObject(tuxCommand);
+        internalBaseCommand = TCUtils.createBaseCommandObject(tuxCommand);
+        subCommands = TCUtils.createSubCommandObjects(tuxCommand);
+        helpCommand = TCUtils.createHelpCommandObject(tuxCommand, BasicHelpCommand::new);
         this.jdaCommandManager = commandManager;
     }
 
@@ -61,8 +60,8 @@ public class JDAInternalCommand implements InternalCommand {
         }
         if (!subCommands.isEmpty()) {
             for (SubCommandObject subCommand : subCommands) {
-                if (TuxUtils.contains(subCommand.getCommandRules().alias(), strings[0])) {
-                    subCommand.execute(jdaCommandManager, new JDAArgumentSet(e.getMember(), e, strings, message));
+                if (subCommand.getCommandRules().subCommand().equalsIgnoreCase(strings[0])||TuxUtils.containsIgnoreCase(subCommand.getCommandRules().alias(), strings[0])) {
+                    subCommand.execute(jdaCommandManager, new JDAArgumentSet(e.getMember(), e, TuxUtils.noNulls(TuxUtils.removeFirst(strings)), message));
                     return;
                 }
             }
@@ -71,27 +70,5 @@ public class JDAInternalCommand implements InternalCommand {
         internalBaseCommand.execute(jdaCommandManager, new JDAArgumentSet(e.getMember(), e, strings, message));
     }
 
-    private static HelpCommandObject createHelpCommandObject(TuxCommand tuxCommand) {
-        if (MethodFinder.getNumberOfMethodsWithAnnotation(tuxCommand.getClass(), HelpCommand.class) > 1) {
-            throw new IllegalArgumentException("The TuxCommand does not provide the correct number of BaseCommands it should be 1");
-        } else if (MethodFinder.getNumberOfMethodsWithAnnotation(tuxCommand.getClass(), HelpCommand.class) == 0) {
-            return new BasicHelpCommand(tuxCommand);
-        }
-        return new HelpCommandObject(tuxCommand, MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), HelpCommand.class), MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), HelpCommand.class).getAnnotation(HelpCommand.class));
-    }
 
-    private static List<SubCommandObject> createSubCommandObjects(TuxCommand tuxCommand) {
-        List<SubCommandObject> subCommands = new ArrayList<>();
-        for (Method method : MethodFinder.getAllMethodsWithAnnotation(tuxCommand.getClass(), SubCommand.class)) {
-            subCommands.add(new SubCommandObject(tuxCommand, method, method.getAnnotation(SubCommand.class)));
-        }
-        return subCommands;
-    }
-
-    private static BaseCommandObject createBaseCommandObject(TuxCommand tuxCommand) {
-        if (MethodFinder.getNumberOfMethodsWithAnnotation(tuxCommand.getClass(), BaseCommand.class) != 1) {
-            throw new IllegalArgumentException("The TuxCommand does not provide the correct number of BaseCommands it should be 1");
-        }
-        return new BaseCommandObject(tuxCommand, MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), BaseCommand.class), MethodFinder.getFirstMethodWithAnnotation(tuxCommand.getClass(), BaseCommand.class).getAnnotation(BaseCommand.class));
-    }
 }

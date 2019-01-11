@@ -1,5 +1,6 @@
 package me.kingtux.tuxcommand.common;
 
+import me.kingtux.tuxcommand.common.annotations.Command;
 import me.kingtux.tuxcommand.common.internals.CommandMaker;
 import me.kingtux.tuxcommand.common.internals.InternalCommand;
 

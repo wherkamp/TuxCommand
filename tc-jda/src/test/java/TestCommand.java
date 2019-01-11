@@ -1,6 +1,6 @@
-import me.kingtux.tuxcommand.common.BaseCommand;
-import me.kingtux.tuxcommand.common.Command;
-import me.kingtux.tuxcommand.common.SubCommand;
+import me.kingtux.tuxcommand.common.annotations.BaseCommand;
+import me.kingtux.tuxcommand.common.annotations.Command;
+import me.kingtux.tuxcommand.common.annotations.SubCommand;
 import me.kingtux.tuxcommand.common.TuxCommand;
 import me.kingtux.tuxcommand.jda.JDARequiredPermission;
 import net.dv8tion.jda.core.Permission;
@@ -17,14 +17,14 @@ public class TestCommand implements TuxCommand {
         tc.sendMessage(s + " was sent!").queue();
     }
 
-    @SubCommand(alias = "null")
+    @SubCommand(subCommand = "null")
     public void nullCheck(TextChannel textChannel) {
         textChannel.sendMessage("Null Checking").complete();
         Object o = null;
         System.out.println(o.toString());
     }
 
-    @SubCommand(alias = "security")
+    @SubCommand(subCommand = "security")
     public void security(TextChannel textChannel) {
         textChannel.sendMessage("Security Checked").queue();
     }

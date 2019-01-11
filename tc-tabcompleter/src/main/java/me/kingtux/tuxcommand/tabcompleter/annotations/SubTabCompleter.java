@@ -1,4 +1,4 @@
-package me.kingtux.tuxcommand.tabcompleter;
+package me.kingtux.tuxcommand.tabcompleter.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,5 +13,5 @@ public @interface SubTabCompleter {
      * That id is what you put here!
      * @return the id for the SubCommand
      */
-    String subID();
+    String sub();
 }

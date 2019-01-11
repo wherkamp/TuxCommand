@@ -1,6 +1,7 @@
 package me.kingtux.tuxcommand.common.internals;
 
 import me.kingtux.tuxcommand.common.*;
+import me.kingtux.tuxcommand.common.annotations.SubCommand;
 
 import java.lang.reflect.Method;
 
