@@ -1,7 +1,10 @@
 package me.kingtux.tuxcommand.jda;
 
 import me.kingtux.simpleannotation.AnnotationWriter;
-import me.kingtux.tuxcommand.common.*;
+import me.kingtux.tuxcommand.common.CommandManager;
+import me.kingtux.tuxcommand.common.MyCommand;
+import me.kingtux.tuxcommand.common.TuxCommand;
+import me.kingtux.tuxcommand.common.TuxUtils;
 import me.kingtux.tuxcommand.common.annotations.Command;
 import me.kingtux.tuxcommand.common.internals.InternalCommand;
 import net.dv8tion.jda.core.JDA;
@@ -104,7 +107,8 @@ public class JDACommandManager
                 return;
             }
         }
-        if (rules != null) AnnotationWriter.writeToAnnotation(tuxCommand.getClass(), Command.class, rules);
+        MyCommand lR = fixRules(rules);
+        if (lR != null) AnnotationWriter.writeToAnnotation(tuxCommand.getClass(), Command.class, lR);
         registeredCommands.add(new JDAInternalCommand(tuxCommand, this));
     }
 
@@ -187,5 +191,10 @@ public class JDACommandManager
         List<TuxCommand> tuxCommands = new ArrayList<>();
         registeredCommands.forEach(internalCommand -> tuxCommands.add(internalCommand.getTuxCommand()));
         return tuxCommands;
+    }
+
+    @Override
+    public String getPrefix() {
+        return prefix;
     }
 }
