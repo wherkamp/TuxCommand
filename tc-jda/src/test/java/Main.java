@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 public class Main {
     public static void main(String[] args) throws LoginException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         JDA jda = new JDABuilder("NTI4NjAyMTM5MDczODM5MTE2.Dwkq4g.TWMsMGG7L4d7fPQgqV1MC1QdpVw").build();
-        JDACommandManager manager = new JDACommandManager(jda, ">");
+        JDACommandManager manager = new JDACommandManager(jda, "$k");
         manager.setPermission((commandObject, argumentSet, permissionNeeded) -> argumentSet.getChannel().sendMessage("NO Permission for you").queue());
         manager.register(new TestCommand(manager));
         manager.register(new BanCommand());

@@ -9,10 +9,7 @@ import me.kingtux.tuxcommand.common.annotations.Command;
 import me.kingtux.tuxcommand.common.internals.InternalCommand;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.events.Event;
-import net.dv8tion.jda.core.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.EventListener;
 
 import java.util.*;
 
@@ -20,12 +17,12 @@ import java.util.*;
  * The type Jda command manager.
  */
 public class JDACommandManager
-        implements CommandManager<JDAFailureHandler, JDACommandMaker>, EventListener {
+        implements CommandManager<JDAFailureHandler, JDACommandMaker> {
     private JDA jda;
     private boolean botsRun = false;
     private List<InternalCommand> registeredCommands;
-    private String prefix;
-    private Map<Guild, String> guildSpecificPrefixes = new HashMap<>();
+    protected String prefix;
+    protected Map<Guild, String> guildSpecificPrefixes = new HashMap<>();
     private JDAMissingPermission permission;
     private JDAFailureHandler handler;
     private JDACommandMaker maker;
@@ -38,7 +35,7 @@ public class JDACommandManager
      */
     public JDACommandManager(JDA jda, String prefix) {
         this.jda = jda;
-        jda.addEventListener(this);
+        jda.addEventListener(new EventListener(this));
         registeredCommands = new ArrayList<>();
         this.prefix = prefix;
         permission = null;
@@ -47,16 +44,6 @@ public class JDACommandManager
         handler = (executor, jdaCommand) -> executor.printStackTrace();
     }
 
-    public void onMessageReceived(MessageReceivedEvent e) {
-        if (!e.getMessage().getEmbeds().isEmpty()) {
-            //Throw out messages with embeds
-            return;
-        }
-        if (!e.getMessage().getContentRaw().startsWith(prefix) ||
-                !e.getMessage().getContentRaw().startsWith(guildSpecificPrefixes.getOrDefault(e.getGuild(), prefix)))
-            return;
-        executeCommand(e);
-    }
 
     /**
      * Register prefix.
@@ -68,22 +55,21 @@ public class JDACommandManager
         guildSpecificPrefixes.put(guild, prefix);
     }
 
-    public void onGuildLeave(GuildMemberLeaveEvent event) {
-        guildSpecificPrefixes.remove(event.getGuild());
-    }
 
-
-    private void executeCommand(MessageReceivedEvent e) {
+    protected void executeCommand(MessageReceivedEvent e) {
         String message = e.getMessage().getContentRaw();
         if (message.startsWith(prefix)) {
-            message = message.replaceFirst(prefix, "");
+
+            message = message.substring(prefix.length());
         } else {
             String gp = guildSpecificPrefixes.get(e.getGuild());
             if (gp != null) {
-                message = message.replaceFirst(gp, "");
+                message = message.substring(gp.length());
             }
         }
-        String[] messageParsed = message.split(" ");
+        System.out.println(message);
+        String[] messageParsed = message.split("\\s+");
+        System.out.println(messageParsed[0]);
         InternalCommand internalCommand = getCommand(messageParsed[0]);
         if (internalCommand == null) return;
         JDAInternalCommand jdaInternalCommand = (JDAInternalCommand) internalCommand;
@@ -164,14 +150,6 @@ public class JDACommandManager
         this.permission = permission;
     }
 
-    @Override
-    public void onEvent(Event event) {
-        if (event instanceof MessageReceivedEvent) {
-            onMessageReceived((MessageReceivedEvent) event);
-        } else if (event instanceof GuildMemberLeaveEvent) {
-            onGuildLeave((GuildMemberLeaveEvent) event);
-        }
-    }
 
     public JDAFailureHandler getFailureHandler() {
         return handler;
