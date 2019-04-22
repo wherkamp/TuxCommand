@@ -1,8 +1,6 @@
 target/
 *.class
-jda/target/
-common/target/
-bukkit/target/
+*/target/
 out/
 *.iml
 .idea/
