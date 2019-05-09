@@ -24,6 +24,7 @@ public class BukkitCommandExecutor extends Command implements InternalCommand {
         this(tc, bukkitCommandManager, tc.getCommand().aliases()[0], tc.getCommand().description(), tc.getCommand().format(), Arrays.asList(TuxUtils.noNulls(TuxUtils.removeFirst(tc.getCommand().aliases()))));
     }
 
+
     protected BukkitCommandExecutor(TuxCommand tc, BukkitCommandManager bukkitCommandManager, String name, String description, String usageMessage, List<String> aliases) {
         super(name, description, usageMessage, aliases);
         this.tuxCommand = tc;

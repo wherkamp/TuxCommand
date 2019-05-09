@@ -16,13 +16,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BukkitCommandManager implements CommandManager<BukkitFailureHandler, BukkitCommandMaker>, TabManager<BukkitTabMaker> {
     private String mustBeAPlayer = "You must be a player";
     private BukkitFailureHandler failureHandler;
     private MissingPermissionHandler mph;
-    private List<InternalCommand> registeredCommands;
+    private List<InternalCommand> registeredCommands = new ArrayList<>();
     private BukkitCommandMaker bcm;
     private BukkitTabMaker btm;
     private Plugin plugin;
@@ -34,7 +35,8 @@ public class BukkitCommandManager implements CommandManager<BukkitFailureHandler
             throw new IllegalArgumentException("Dont lie to me Blart - Pahud");
         this.plugin = plugin;
         loadLogger();
-
+        bcm = new BukkitCommandMaker();
+        btm = new BukkitTabMaker();
         if (getCommandMap() == null) {
             throw new IncompatibleServerException("TuxCommand is incompatible with " + Bukkit.getServer().getName());
         }
